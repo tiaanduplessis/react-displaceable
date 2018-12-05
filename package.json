@@ -1,0 +1,37 @@
+{
+  "name": "react-displaceable",
+  "version": "1.0.0",
+  "description": "React component for displaceable",
+  "main": "dist/react-displaceable.js",
+  "umd:main": "dist/react-displaceable.umd.js",
+  "module": "dist/react-displaceable.m.js",
+  "source": "src/index.js",
+  "repository": "https://github.com/tiaanduplessis/react-displaceable",
+  "author": "Tiaan du Plessis <tiaanduplessis@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --fix src",
+    "build": "microbundle -o dist/ --sourcemap false --compress false",
+    "dev": "microbundle watch -o dist/ --sourcemap false --compress false"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-nitpicky": "^3.0.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-compat": "^2.6.3",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.2",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "microbundle": "^0.8.3"
+  },
+  "peerDependencies": {
+    "react": "*"
+  },
+  "dependencies": {
+    "displaceable": "^0.4.1"
+  }
+}

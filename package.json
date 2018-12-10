@@ -1,6 +1,6 @@
 {
   "name": "react-displaceable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component for displaceable",
   "main": "dist/react-displaceable.js",
   "umd:main": "dist/react-displaceable.umd.js",

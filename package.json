@@ -32,6 +32,6 @@
     "react": "*"
   },
   "dependencies": {
-    "displaceable": "^0.4.1"
+    "displaceable": "^0.5.0"
   }
 }

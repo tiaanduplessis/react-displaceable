@@ -55,6 +55,43 @@ ReactDOM.render(<App />, rootElement);
 
 ```
 
+## Lifecycle
+
+Unmounting removes the mouse handlers and window listeners owned by that
+component. Handlers installed afterward by another component or caller are
+preserved.
+
+The upstream library assigns mouse handlers directly to its trigger. Multiple
+components sharing a trigger, including the default `window`, therefore still
+use the most recently mounted component's mouse handlers. Use separate triggers
+when components need independent mouse behavior. Unmounting does not restore an
+older component's handlers.
+
+Animation frames queued before unmount may still update the removed element.
+The dependency does not expose cancellation for those pending frames.
+
+## Development
+
+The dependency is pinned to `displaceable` 0.5.0 because listener cleanup relies
+on that version's bound callback identities. Dependency updates need to preserve
+the ownership and failed-initialization checks.
+
+`npm test` runs the lifecycle and rendering regressions on Node 16 or newer using
+React, ReactDOM and the actual dependency. It checks source, CommonJS, native ESM
+and UMD entry points with owned event and animation fixtures. Browser validation
+is still needed for native mouse-handler ordering and geometry.
+
+The distribution files can be rebuilt on Node 24.11 or newer with the isolated compiler:
+
+```sh
+npm install --prefix .build-tools --ignore-scripts --no-fund @babel/core@8.0.7 @babel/preset-env@8.0.7 @babel/plugin-transform-react-jsx@8.0.1 rollup@4.64.3
+npm run build:verified
+```
+
+The build keeps React and displaceable external and emits ES5 CommonJS/UMD files
+plus an ES module. The compiler's Node requirement does not change the library's
+runtime requirement. Audit the isolated tool graph before executing it.
+
 ## Contribute
 
 1. Fork it and create your feature branch: `git checkout -b my-new-feature`
